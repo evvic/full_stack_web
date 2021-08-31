@@ -1,0 +1,9 @@
+h1 {
+    color: plum;
+}
+
+@media (max-width: 720px) {
+    h1 {
+        color: paleturquoise;
+    }
+}
