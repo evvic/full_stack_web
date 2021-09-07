@@ -1,22 +1,64 @@
 <!DOCTYPE html>
 <html>
-    <!-- to open an HTML file on the browser through the terminal run: -->
-    <!-- google-chrome <filename>& -->
-<head>
-    <link rel="stylesheet" href="index.css">
-</head>
-<body>
-    <h1>Eric Brown's awesome website</h1>
-    <span class="desktop-text">Full Stack Web Development</span>
-    <span class="mobile-text">Full Stack MOBILE Web Development</span>
 
-    <p>I expect this course to teach me many different tools/frameworks for developing the frontend, and to learn how to properly use the backend.</p>
-    <p>My ultimate goal in this class is to collect all the XP and become the strongest character I can be!</p>
-    <img src="pics/me_n_charlie.jpg">
-    <img src="pics/SoC_Location_Interns.jpg">
-    
-    <p>I have lots of HTML and Javascript experience, esecially with React, thus I am hoping to learn new frameworks...</p>
-    <p>Especially learning more about the backend because that is what I have the least amount of experience in.</p>
-    
+<head>
+    <style>
+        .container {
+            flex-direction: column;
+            display: flex;
+        }
+
+        .flex-container {
+            display: flex;
+            flex-wrap: nowrap;
+            background-color: greenyellow;
+            flex-direction: row;
+        }
+
+        .flex-container>div {
+            background-color: sandybrown;
+            width: 100px;
+            margin: 10px;
+            text-align: center;
+            line-height: 75px;
+            font-size: 30px;
+        }
+
+        @media (max-width: 720px) {
+            .flex-container {
+                flex-direction: column;
+                background-color: skyblue;
+                padding: 10px;  
+            }
+
+            .container {
+                flex-direction: row;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="flex-container">
+            <div><a href="url">C++</a></div>
+            <div><a href="url">Rust</a></div>
+            <div><a href="url">Java</a></div>
+            <div><a href="url">Python</a></div>
+            <div><a href="url">HTML</a></div>
+            <div><a href="url">Kotlin</a></div>
+            <div><a href="url">Swift</a></div>
+        </div>
+
+        <div>
+            <h2>Programming Classes</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+    </div>
+
 </body>
+
 </html>
