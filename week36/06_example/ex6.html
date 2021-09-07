@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- to open an HTML file on the browser through the terminal run: -->
+  <!-- google-chrome <filename>& -->
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+
+  <body>
+    <div id="cont0">foo</div>
+    
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js" crossorigin></script>
+    <script type="text/babel">
+      // functional component
+      const ElementBlock = (props) => {
+        return (
+            <span>
+                {props.name} <button>{props.num}</button>
+            </span>
+        )
+      }
+      // functional component
+      const ElementBlockRow = (props) => {
+        //map array of nums from 1 to props.num to create each component dynamically
+        return (
+            Array.from({length: props.num}, (_, i) => i + 1).map((i) => {
+                return (
+                    <ElementBlock name={props.name} num={i}/>
+                )
+            })
+        )
+      }
+
+      // class component
+      class RowRow extends React.Component {
+        render() {
+          return (
+            <div>
+              <ElementBlockRow name="eagle" num={4} />
+              <br/>
+              <ElementBlockRow name="cat" num={7} />
+              <br/>
+              <ElementBlockRow name="pony" num={9} />
+            </div>
+          );
+        }
+      }
+      ReactDOM.render(<RowRow />, document.getElementById('cont0'));
+    </script>
+  </body>
+
+</html>

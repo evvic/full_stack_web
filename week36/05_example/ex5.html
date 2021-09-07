@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- to open an HTML file on the browser through the terminal run: -->
+  <!-- google-chrome <filename>& -->
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+
+  <body>
+    <div id="cont0">foo</div>
+    
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js" crossorigin></script>
+    <script type="text/babel">
+      // functional component
+      const Animal  = (props) => {
+        return (
+          <span style={(props.important)?{fontWeight: 'bold' } : {fontWeight: 'normal'}} >
+            The {props.name} is a {props.type} having typically {props.legs} legs. <br />
+          </span>
+        )
+      }
+
+      // class component
+      class VeryInterestingComponent extends React.Component {
+        render() {
+          return (
+            <div>
+              <Animal name="eagle" type="bird" legs={2} />
+              <Animal name="cat" type="mammal" legs={4} important={true} />
+              <Animal name="pike" type="fish" legs={0} />
+              <Animal name="whiskered bat" type="mammal" legs={2} />
+            </div>
+          );
+        }
+      }
+      ReactDOM.render(<VeryInterestingComponent />, document.getElementById('cont0'));
+    </script>
+  </body>
+
+</html>
