@@ -1,0 +1,15 @@
+.board {
+    display: flex;
+}
+.white-square {
+    width: 4em;
+    height: 4em;
+    background-color: antiquewhite;
+}
+
+.black-square {
+    width: 4em;
+    height: 4em;
+    background-color: black;
+}
+
