@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 
 import {BrowserRouter, Route, Switch, Link} from 'react-router-dom';
-import SomeViewComponent from './SomeViewComponent';
+import NestedComponent from './nestedComponent';
 import {connect} from 'react-redux';
 import Board from './chess/board';
 import Arnold from './chest/arnold';
@@ -19,7 +19,7 @@ class App extends React.Component {
                 <Link to="/">Main Page</Link>
               </li>
               <li className="nav-item">
-                <Link to="/something">Something</Link>
+                <Link to="/nested">Nested</Link>
               </li>
               <li className="nav-item">
                 <Link to="/chess">Chess</Link>
@@ -33,7 +33,7 @@ class App extends React.Component {
             <Route path="/" exact>
               <div><h1>Main Page</h1> Lorem ipsum etc.</div>
             </Route>
-            <Route path="/something" component={SomeViewComponent} />
+            <Route path="/nested" component={NestedComponent} />
             <Route path="/chess" component={Board} />
             <Route path="/chest" component={Arnold} />
             <Route path="/">

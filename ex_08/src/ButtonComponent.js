@@ -17,7 +17,6 @@ class ButtonComponent extends React.Component {
     
     
     render() {
-        console.log("BUTTON COMPONENT")
         return(
             <div>
                 <button onClick={this.props.handleChangeColorModeEvent} 

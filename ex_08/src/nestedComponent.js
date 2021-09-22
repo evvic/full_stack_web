@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import n from './logo.svg';
 import {Switch, Route, useRouteMatch, useParams, Link} from 'react-router-dom';
 import ButtonComponent from './ButtonComponent';
-function SomeViewComponent() {
-    console.log("SOME VIEW COMPONENT")
+import Swag from './swag';
+
+function NestedComponent() {
 
   // useRouteMatch Hook offers access to match object
   // that provides info about how a <Route path> matched the
@@ -20,8 +21,11 @@ function SomeViewComponent() {
                   <li className="nav-item">
                       <Link to={`${match.url}/foo`}>Foo</Link>
                   </li>
-                  <li className="last-nav-item">
+                  <li className="nav-item">
                       <Link to={`${match.url}/bar`}>Bar</Link>
+                  </li>
+                  <li className="last-nav-item">
+                      <Link to={`${match.url}/swag`}>Swag</Link>
                   </li>
               </ul>
           </nav>
@@ -44,36 +48,44 @@ function SomeViewComponent() {
 // based on the URL
 function SubPage() {
 
-  // We can access the search parameters in the URL via useParams Hook  
-  const {subpageId} = useParams();
+    // We can access the search parameters in the URL via useParams Hook  
+    const {subpageId} = useParams();
 
-  if (subpageId === 'foo') {
-      return (
-          <div>
-              <h1>{subpageId}</h1>
-              <ButtonComponent />
-          </div>
-      );
-  }
-  else if (subpageId === 'bar') {
-      return (
-          <div>
-              <h1>{subpageId}</h1>
-              <img src={n} alt="a cat" />
-          </div>
-      );
-  }
-  else {
-      return (
-          <div>
-              <h1>
-                  Hey, no fooling around!
-              </h1>
-          </div>
-      );
-  }
+    if (subpageId === 'foo') {
+        return (
+            <div>
+                <h1>{subpageId}</h1>
+                <ButtonComponent />
+            </div>
+        );
+    }
+    else if (subpageId === 'bar') {
+        return (
+            <div>
+                <h1>{subpageId}</h1>
+                <img src={n} alt="a cat" />
+            </div>
+        );
+    }
+    else if (subpageId === 'swag') {
+        return (
+            
+            <div>
+                <Swag />
+            </div>
+        );
+    }
+    else {
+        return (
+            <div>
+                <h1>
+                    Hey, no fooling around!
+                </h1>
+            </div>
+        );
+    }
 
 
 }
 
-export default SomeViewComponent;
+export default NestedComponent;
