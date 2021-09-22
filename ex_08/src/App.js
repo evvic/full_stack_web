@@ -4,6 +4,8 @@ import './App.css';
 import {BrowserRouter, Route, Switch, Link} from 'react-router-dom';
 import SomeViewComponent from './SomeViewComponent';
 import {connect} from 'react-redux';
+import Board from './chess/board';
+import Arnold from './chest/arnold';
 
 class App extends React.Component {
   render() {
@@ -16,8 +18,14 @@ class App extends React.Component {
               <li className="nav-item">
                 <Link to="/">Main Page</Link>
               </li>
-              <li className="last-nav-item">
+              <li className="nav-item">
                 <Link to="/something">Something</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/chess">Chess</Link>
+              </li>
+              <li className="last-nav-item">
+                <Link to="/chest">Chest</Link>
               </li>
             </ul>
           </nav>
@@ -26,6 +34,8 @@ class App extends React.Component {
               <div><h1>Main Page</h1> Lorem ipsum etc.</div>
             </Route>
             <Route path="/something" component={SomeViewComponent} />
+            <Route path="/chess" component={Board} />
+            <Route path="/chest" component={Arnold} />
             <Route path="/">
               <h1>Do not do that!</h1>
             </Route>
