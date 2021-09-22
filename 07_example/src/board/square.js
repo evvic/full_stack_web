@@ -6,7 +6,7 @@ function Square(props) {
 
     return(
         <div className={(color === 'white')? "white-square" : "black-square"}
-            onClick={() =>  {setColor((color === "white")? "black" : "white")}}
+            onClick={() =>  setColor((color === "white")? "black" : "white")}
         />
     )
 }
