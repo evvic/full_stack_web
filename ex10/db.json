@@ -1,22 +1,49 @@
 {
-    "birds": [
-        {
-            "id": 1,
-            "species": "blue jay",
-            "observed": {
-                "time": "",
-                "location": "Sacramento"
-            },
-            "time_added": "now"
-        },
-        {
-            "id": 2,
-            "species": "red hawk",
-            "observed": {
-                "time": "last week",
-                "location": "Natomas"
-            },
-            "time_added": "now"
-        }
-    ]
+  "birds": [
+    {
+      "species": "blue jay",
+      "observed": {
+        "time": "",
+        "location": "Sacramento"
+      },
+      "time_added": "now",
+      "id": 1
+    },
+    {
+      "species": "red hawk",
+      "observed": {
+        "time": "last week",
+        "location": "Natomas"
+      },
+      "time_added": "now",
+      "id": 2
+    },
+    {
+      "species": "vulture",
+      "observed": {
+        "time": "",
+        "location": "Sacramento"
+      },
+      "time_added": "now",
+      "id": 3
+    },
+    {
+      "species": "crow",
+      "observed": {
+        "time": "",
+        "location": "San Francisco"
+      },
+      "time_added": "now",
+      "id": 4
+    },
+    {
+      "species": "egret",
+      "observed": {
+        "time": "yesterday",
+        "location": "eleverta"
+      },
+      "time_added": "2021-09-29T12:49:04.570Z",
+      "id": 5
+    }
+  ]
 }

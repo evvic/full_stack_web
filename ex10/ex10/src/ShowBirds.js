@@ -1,12 +1,12 @@
-import React, { useState, useEffect  } from 'react'
+import React, { useState, useEffect, Card } from 'react'
 import axios from 'axios'
+import './App.css';
 
 async function GetBirds() {
     const url = 'http://localhost:3010/birds'
     const data = await axios.get(url)
-    return data
+    return data.data
 }
-
 
 function ShowBirds() {
     const [data, setData] = useState([{}])
@@ -16,41 +16,53 @@ function ShowBirds() {
 
     async function Filter(spec = "") {
         // if no species filter is given: show all
-        if(spec === "") {
+        if(spec === "" || spec === "\n" || spec === " " || spec == "all" || spec == "al") {
             // map data to list of props
             setBirdList(data.map((b) => <li key={b.id}>{b.species}, in {b.observed.location}</li>))
         }
         else {
             //filter by spec
-            let filtered = data.filter((event) => {
-                //console.log(event.species)
+            let filtered = await data.filter((event) => {
+                console.log(event.species)
                 if(event.species.includes(spec.toLowerCase()))
                     return event.species
             })
 
-            setBirdList(filtered.map((b) => <li key={b.id}>{b.species}, in {b.observed.location}</li>))
+            setBirdList(filtered.map((b) => <li key={b.id} className="items">{b.species}, in {b.observed.location}</li>))
         }
     }
 
     async function Loading() {
         setLoading(true)
         
-        let temp = await GetBirds()
-        let birds = temp.data
+        let temp = null
+        temp = await GetBirds()
 
-        console.log(birds)
+        console.log(temp)
 
         // make sure temp is not null
-        if(birds) {
-            setData(birds)
-            setLoading(false)
+        if(temp) {
+            setData(temp)
 
-            await Filter()
-
+            //await Filter()
+            setBirdList(temp.map((b) => <li key={b.id}>
+                <div className="task-item">
+                    <div className="task-itembody">
+                        {b.observed.time}
+                    </div>
+                    <div className="task-itembody">
+                        <h2>{b.species}, in {b.observed.location}</h2>
+                    </div>
+                </div>
+                </li>))
         }
         else {
             setData([{"name": "error"}])
         }
+
+        console.log(data)
+
+        setLoading(false)
     }    
 
     useEffect(() => {
@@ -78,7 +90,7 @@ function ShowBirds() {
                 </label>
                 
                 {bird_items}
-            </>
+            </> 
         }
         </>
         
