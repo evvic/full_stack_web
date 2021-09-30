@@ -44,6 +44,15 @@
       },
       "time_added": "2021-09-29T12:49:04.570Z",
       "id": 5
+    },
+    {
+      "species": "pigeon",
+      "observed": {
+        "time": "2021-09-10",
+        "location": "Tampere"
+      },
+      "time_added": "2021-09-30T09:18:45.882Z",
+      "id": 6
     }
   ]
 }

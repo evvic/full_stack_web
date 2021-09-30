@@ -29,7 +29,7 @@ function AddBirds() {
     //const [timeAdded, setTimeAdded] = useState("")
 
     const [loading, setLoading] = useState(false)
-    const [error, setError] = useState("edawg")
+    const [error, setError] = useState("")
 
     function ProcessBird() {
         setLoading(true)
@@ -77,11 +77,13 @@ function AddBirds() {
     <>
         <div>
             {/*form for adding a bird to the db*/}
-            {(error)? <p>{error}</p>: <p>no error</p>}
+            <h2>Add a bird to the records</h2>
+            {(error)? <p>{error}</p>: <p></p>}
             <form>
                 <div>
                     <input
                         type="text"
+                        placeholder="species"
                         name="species"
                         value={species}
                         onChange={(e) => setSpecies(e.target.value)}
@@ -90,6 +92,7 @@ function AddBirds() {
                 <div>
                     <input
                         type="text"
+                        placeholder="observed location"
                         name="observed location"
                         value={observedLocation}
                         onChange={(e) => setObservedLocation(e.target.value)}
@@ -97,7 +100,8 @@ function AddBirds() {
                 </div>
                 <div>
                     <input
-                        type="text"
+                        type="date"
+                        placeholder="observed time"
                         name="observed time"
                         value={observedTime}
                         onChange={(e) => setObservedTime(e.target.value)}
